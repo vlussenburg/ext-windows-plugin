@@ -8,4 +8,12 @@
 -->
 <synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
+	<type type="windows.RegisteredDllFile" extends="generic.ExecutedScriptWithDerivedArtifact" deployable-type="windows.DllFile" container-type="generic.Container">
+        <generate-deployable type="windows.DllFile" extends="generic.File"/>
+        <property name="targetPath" description="The path the DLL should be moved to on the target host" default="C:\Windows\System32\"/>
+        <property name="targetFileName" description="The name the DLL should have on the target host, for example, schmmgmt.dll" />
+        <property name="createScript" default="windows/dll-installer.ps1" hidden="true"/>
+        <property name="destroyScript" default="windows/dll-uninstaller.ps1" hidden="true"/>
+    </type>
+
 </synthetic>
